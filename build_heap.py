@@ -13,10 +13,10 @@ def build_heap(data):
         min_index = i
         left = 2*i + 1
         if left < n and data[left] < data[min_index]:
-            min_index = l
+            min_index = left
         right = 2*i + 2
         if right < n and data[right] < data[min_index]:
-            min_index = r
+            min_index = right
         if i != min_index:
             data[i], data[min_index] = data[min_index], data[i]
             swaps.append((i, min_index))
@@ -42,7 +42,8 @@ def main():
         data = list(map(int, input().split()))
     else:
         file_name = input()
-        with open(os.path.join('./tests/'), file_name) as f:
+        file_path = os.path.join('/tests/', file_name)
+        with open(file_path, "r") as f:
             n = int(f.readline().strip())
             variables = f.readline()
             data = list(map(int, variables.strip().split()))
