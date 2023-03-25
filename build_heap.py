@@ -42,9 +42,9 @@ def main():
     else:
         file_name = input()
         f = open("test/" + file_name,'r')
-        n = int(f.readline())
+        n = int(f.readline().strip())
         variables = f.readline()
-        data = list(map(int, variables.split()))
+        data = list(map(int, variables.strip().split()))
          
 
 
