@@ -1,5 +1,6 @@
 # python3
 # Nikita Ščipanovs 221RDB061
+import os
 
 def build_heap(data):
     swaps = []
@@ -10,11 +11,11 @@ def build_heap(data):
     def sift_down(i):
         nonlocal swaps
         min_index = i
-        l = 2*i + 1
-        if l < n and data[l] < data[min_index]:
+        left = 2*i + 1
+        if left < n and data[left] < data[min_index]:
             min_index = l
-        r = 2*i + 2
-        if r < n and data[r] < data[min_index]:
+        right = 2*i + 2
+        if right < n and data[right] < data[min_index]:
             min_index = r
         if i != min_index:
             data[i], data[min_index] = data[min_index], data[i]
@@ -41,10 +42,10 @@ def main():
         data = list(map(int, input().split()))
     else:
         file_name = input()
-        f = open("test/" + file_name,'r')
-        n = int(f.readline().strip())
-        variables = f.readline()
-        data = list(map(int, variables.strip().split()))
+        with open(os.path.join('./tests/'), file_name) as f:
+            n = int(f.readline().strip())
+            variables = f.readline()
+            data = list(map(int, variables.strip().split()))
          
 
 
