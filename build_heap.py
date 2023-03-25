@@ -42,7 +42,7 @@ def main():
         data = list(map(int, input().split()))
     else:
         file_name = input()
-        file_path = os.path.join('/tests/', file_name)
+        file_path = os.path.join('tests/', file_name)
         with open(file_path, "r") as f:
             n = int(f.readline().strip())
             variables = f.readline()
